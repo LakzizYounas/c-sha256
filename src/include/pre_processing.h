@@ -1,1 +1,1 @@
-uint8_t * pre_process(const char *str);
+uint8_t *pre_process(const char *str);
