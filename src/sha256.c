@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#include "hash_values.h"
 #include "pre_processing.h"
 #include "chuck_split.h"
 #include "message_schedule.h"
@@ -16,6 +17,8 @@ char *sha256(const char *input)
   free(pre_processed);
 
   create_message_schedule(chunk_collection);
+
+  Hashes *hashes = get_hashes();
 
   free(chunk_collection->chunks);
 
