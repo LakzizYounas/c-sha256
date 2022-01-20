@@ -6,9 +6,10 @@
 #include "chunk_split.h"
 #include "message_schedule.h"
 #include "compression.h"
+#include "print_hex.h"
 #include "sha256.h"
 
-char *sha256(const char *input)
+void sha256(const char *input)
 {
   PreProcessedInput *pre_processed = pre_process(input);
 
@@ -24,6 +25,9 @@ char *sha256(const char *input)
   compression(hashes, chunk_collection);
 
   free(chunk_collection->chunks);
+  free(chunk_collection);
 
-  return "sha256";
+  print_hex(hashes);
+
+  free(hashes);
 }

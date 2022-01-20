@@ -4,6 +4,8 @@
 
 void compression(Hashes *hashes, Chunk_Collection *chunk_collec)
 {
+  uint32_t *ROUND_CONSTANTS = get_round_hashes();
+
   for (size_t chunk_i = 0; chunk_i < chunk_collec->chunks_len; chunk_i++)
   {
     uint32_t a = hashes->h0,
@@ -42,4 +44,6 @@ void compression(Hashes *hashes, Chunk_Collection *chunk_collec)
     hashes->h6 += g;
     hashes->h7 += h;
   }
+
+  free(ROUND_CONSTANTS);
 }

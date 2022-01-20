@@ -1,3 +1,3 @@
 #pragma once
 
-char *sha256(const char *);
+void sha256(const char *);
