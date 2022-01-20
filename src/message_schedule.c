@@ -2,7 +2,7 @@
 
 #include "print_bits.h"
 #include "bit_rotate.h"
-#include "chuck_split.h"
+#include "chunk_split.h"
 
 void create_message_schedule(Chunk_Collection *chunk_collec)
 {

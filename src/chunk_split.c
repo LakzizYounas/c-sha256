@@ -3,7 +3,7 @@
 
 #include "print_bits.h"
 #include "pre_processing.h"
-#include "chuck_split.h"
+#include "chunk_split.h"
 
 Chunk_Collection *chunk_split(PreProcessedInput *pre_processed)
 {
