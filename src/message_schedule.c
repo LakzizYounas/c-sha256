@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-#include "print_bits.h"
 #include "bit_rotate.h"
 #include "chunk_split.h"
 
@@ -25,6 +24,5 @@ void create_message_schedule(Chunk_Collection *chunk_collec)
           chunk_collec->chunks[i].data[j - 7] +
           s1;
     }
-    // print_32bits_arr(chunk_collec->chunks[i].data, 64);
   }
 }

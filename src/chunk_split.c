@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "print_bits.h"
 #include "pre_processing.h"
 #include "chunk_split.h"
 
@@ -22,12 +21,6 @@ Chunk_Collection *chunk_split(PreProcessedInput *pre_processed)
       chunks[chunk_i].data[row_i] |= pre_processed->b_input[process_i++] << 0;
     }
   }
-
-  // for (size_t i = 0; i < chunks_len; i++)
-  // {
-  //   printf("\n[CHUNK N°%ld]\n", i);
-  //   print_32bits_arr(chunks[i].data, 64);
-  // }
 
   chunk_collection->chunks = chunks;
   chunk_collection->chunks_len = chunks_len;

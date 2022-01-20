@@ -4,7 +4,6 @@
 #include <stdio.h>
 
 #include "pre_processing.h"
-#include "print_bits.h"
 
 static void string_to_uint8_array(
     PreProcessedInput *pre_processed,
@@ -68,8 +67,6 @@ PreProcessedInput *pre_process(const char *input)
   string_to_uint8_array(pre_processed, input, init_len);
   append_1(pre_processed);
   pad_and_append_len(pre_processed, init_len);
-
-  // print_8bits_arr(pre_processed->b_input, pre_processed->b_input_len);
 
   return pre_processed;
 }
