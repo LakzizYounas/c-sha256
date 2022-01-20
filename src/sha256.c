@@ -6,9 +6,10 @@
 
 char *sha256(const char *input)
 {
-  uint8_t *b_input = pre_process(input);
+  PreProcessedInput *pre_processed = pre_process(input);
 
-  free(b_input);
+  free(pre_processed->b_input);
+  free(pre_processed);
 
   return "sha256";
 }
