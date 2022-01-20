@@ -1,3 +1,5 @@
+#pragma once
+
 #include <stdint.h>
 
 #define HASH_0 0x6a09e667
