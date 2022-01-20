@@ -18,7 +18,15 @@ void print_bits(size_t const size, void const *const ptr)
   printf("\n");
 }
 
-void print_bits_arr(uint8_t *arr, size_t len)
+void print_8bits_arr(uint8_t *arr, size_t len)
+{
+  for (size_t i = 0; i < len; i++)
+  {
+    print_bits(sizeof(arr[i]), &(arr[i]));
+  }
+}
+
+void print_32bits_arr(uint32_t *arr, size_t len)
 {
   for (size_t i = 0; i < len; i++)
   {

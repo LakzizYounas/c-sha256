@@ -69,7 +69,7 @@ PreProcessedInput *pre_process(const char *input)
   append_1(pre_processed);
   pad_and_append_len(pre_processed, init_len);
 
-  print_bits_arr(pre_processed->b_input, pre_processed->b_input_len);
+  // print_8bits_arr(pre_processed->b_input, pre_processed->b_input_len);
 
   return pre_processed;
 }

@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "print_bits.h"
+#include "pre_processing.h"
+#include "chuck_split.h"
+
+Chunk *chunk_split(PreProcessedInput *pre_processed)
+{
+  size_t chunks_len = pre_processed->b_input_len / 64;
+  Chunk *chunks = calloc(sizeof(Chunk), chunks_len + 1);
+
+  for (size_t chunk_i = 0, process_i = 0; chunk_i < chunks_len; chunk_i++)
+  {
+    for (size_t row_i = 0; row_i < 16; row_i++)
+    {
+      chunks[chunk_i].data[row_i] |= pre_processed->b_input[process_i++] << 24;
+      chunks[chunk_i].data[row_i] |= pre_processed->b_input[process_i++] << 16;
+      chunks[chunk_i].data[row_i] |= pre_processed->b_input[process_i++] << 8;
+      chunks[chunk_i].data[row_i] |= pre_processed->b_input[process_i++] << 0;
+    }
+  }
+
+  // for (size_t i = 0; i < chunks_len; i++)
+  // {
+  //   printf("\n[CHUNK N°%ld]\n", i);
+  //   print_32bits_arr(chunks[i].data, 64);
+  // }
+
+  return chunks;
+}
