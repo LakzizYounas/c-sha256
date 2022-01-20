@@ -2,10 +2,11 @@
 
 #include "sha256.h"
 
-int main()
+int main(int argc, char **argv)
 {
-  sha256("hello world");
-  // const char *output = sha256("hello world");
-  // printf("output: [%s]\n", output);
+  if (argc > 1)
+  {
+    sha256(argv[1]);
+  }
   return (0);
 }
