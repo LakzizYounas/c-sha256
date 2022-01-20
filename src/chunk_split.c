@@ -5,10 +5,12 @@
 #include "pre_processing.h"
 #include "chuck_split.h"
 
-Chunk *chunk_split(PreProcessedInput *pre_processed)
+Chunk_Collection *chunk_split(PreProcessedInput *pre_processed)
 {
+  Chunk_Collection *chunk_collection = calloc(sizeof(Chunk_Collection), 1);
+
   size_t chunks_len = pre_processed->b_input_len / 64;
-  Chunk *chunks = calloc(sizeof(Chunk), chunks_len + 1);
+  Chunk *chunks = calloc(sizeof(Chunk), chunks_len);
 
   for (size_t chunk_i = 0, process_i = 0; chunk_i < chunks_len; chunk_i++)
   {
@@ -27,5 +29,8 @@ Chunk *chunk_split(PreProcessedInput *pre_processed)
   //   print_32bits_arr(chunks[i].data, 64);
   // }
 
-  return chunks;
+  chunk_collection->chunks = chunks;
+  chunk_collection->chunks_len = chunks_len;
+
+  return chunk_collection;
 }
